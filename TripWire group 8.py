@@ -11,7 +11,7 @@ To test against the record use the following pattern:
 
 CPRG-217-A  Feb. 2, 2025
 group 8
-Clayton Ma 760796, Allen Amil 959926, Muhammad Khan 957149,
+Clayton Ma 760796, Allen Amil 959926, Muhammad Khan 957149, Dustin Nguyen 737507
 
 
 """
