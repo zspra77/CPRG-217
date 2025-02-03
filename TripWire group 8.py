@@ -33,15 +33,20 @@ DELIMITER = ":"
 
 
 
-#uses the ls command to list files in test folder and seperates them into individual lines
+
 def GetFileList():
+    '''
+    Uses the ls command to list files in test folder and seperates them into individual lines
+    '''
     fileList = os.popen("ls " + testFolder).read().splitlines() 
     return fileList
 
 
 
 def GetHash(fileName):
-    #format the given arguments in a readable path for the code to access exact file. A
+    '''
+    Format the given arguments in a readable path for the code to access exact file. 
+    '''
     filePath = testFolder + "/" + fileName
     try:
         refFile = open(filePath, "rb") #opens the file and reads it in binary to get the data
@@ -55,8 +60,11 @@ def GetHash(fileName):
 
 
 
-#opens the record file and writes the filename and hash value with delimiter :
+
 def WriteRecord():
+    '''
+    Opens the record file and writes the filename and hash value with delimiter 
+    '''
     try:
         refFile = open(recordFile, "w")
         refFile.write(testFolder + "\n")
@@ -70,8 +78,11 @@ def WriteRecord():
 
 
 
-#creates an empty list to store the filename and hash value pairs
+
 def ReadRecordFile():
+    '''
+    Creates an empty list to store the filename and hash value pairs
+    '''
     try:
         refFile = open(recordFile, "r")
         lines = refFile.read().splitlines()
@@ -91,8 +102,11 @@ def ReadRecordFile():
 
 
 
-#keeps a record of previously recorded filenames
+
 def GetOldFileList(recordTable):
+    '''
+    Keeps a record of previously recorded filenames
+    '''
     oldFileList = []
     for row in recordTable:
         oldFileList.append(row[0])
@@ -100,8 +114,11 @@ def GetOldFileList(recordTable):
     
 
 
-#compares the previously stored filenames to the currently stored filenames and seperates them into categories
+
 def SortBuckets():
+    '''
+    Compares the previously stored filenames to the currently stored filenames and seperates them into categories
+    '''
     missingFiles = []
     possiblyModified = []
     currentFileList = GetFileList()
@@ -119,8 +136,11 @@ def SortBuckets():
 
 
 
-# checks that filenames have matching hash value as previously recorded versions
+
 def CheckIfModified():
+    '''
+    Checks that filenames have matching hash value as previously recorded versions
+    '''
     modifiedFiles = []
     for fileName in possiblyModified:
         for row in recordTable:
