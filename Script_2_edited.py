@@ -5,7 +5,9 @@ Reads system information from a JSON file and displays details about the machine
 
 CPRG217-A, Feb 23, 2025
 Group 8,
-Muhammad Khan 957149,
+Muhammad Khan 957149, Dustin Nguyen 737507, Xiangzhi Gu 538190, Allen Amil 959926, Clayton Ma 760796
+
+Code Source: Marcel Tozser
 ...
 """
 

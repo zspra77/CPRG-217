@@ -5,7 +5,9 @@ Aquires system information such as machine name, CPU details, running services, 
 
 CPRG217-A Feb 10/25
 Group 8 
-Muhammad Khan 957149, Xiangzhi Gu 538190
+Muhammad Khan 957149, Xiangzhi Gu 538190, Dustin Nguyen 737507, Allen Amil 959926, Clayton Ma 760796
+
+Code source: Marcel Tozser
 """
 
 import socket, pwd, grp, os, json
@@ -21,7 +23,7 @@ def GetMachineName():
 #open the cpu info file and append every line of information into an array
 def GetCpuInfo():
     '''
-    uses system cpu file location to get cpu information.
+    Uses system cpu file location to get cpu information.
     '''
     try:
         rFile = open(CPU_INFO_FILE, "r")
@@ -51,7 +53,7 @@ def GetAllServices():
 #get users name and group membership information
 def SystemAccountInfo():
     '''
-    check the membership of the user by accessing the groupid of user and referencing group record.
+    Check the membership of the user by accessing the groupid of user and referencing group record.
     Uses case sensitive sorting
     '''
     systemAccounts = []
@@ -79,7 +81,7 @@ def SystemAccountInfo():
 #log file of machine, accounts, cpu infor, and active services on machine
 def WriteJsonFile():
     '''
-    create a log file call Assignment_2.json of relevant machine log information
+    Create a log file call Assignment_2.json of relevant machine log information
     '''
     myDictionary = {"machineName": machineName, "systemAccounts": systemAccounts, "cpuInfoData": cpuInfoData, "allServices": allServices}
 
