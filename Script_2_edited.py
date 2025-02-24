@@ -1,10 +1,15 @@
 """
 Script_2.py
 
+Reads system information from a JSON file and displays details about the machine name, system accounts, CPU information, and running services.
 
+CPRG217-A, Feb 23, 2025
+Group 8,
+Muhammad Khan 957149,
 ...
 """
 
+#Define the JSON file containing the system information
 JSON_FILE_NAME = "Assignment_2.json"
 
 import json
@@ -46,7 +51,7 @@ def PrintAllServices():
         print(service)
 
 #Main
-dictionary = ReadJsonFile()
+dictionary = ReadJsonFile() 
 print()
 PrintMachineName()
 print()
