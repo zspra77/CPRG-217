@@ -1,14 +1,16 @@
 """
 Script_1.py
 
-Aquires system information
+Aquires system information such as machine name, CPU details, running services, and system accounts, then stores the data in a JSON file.
 
 CPRG217-D Feb 10/25
+Group 8 
+Muhammad Khan 957149, 
 """
 
 import socket, pwd, grp, os, json
 
-
+#Define the file path for CPU information
 CPU_INFO_FILE = "/proc/cpuinfo"
 
 #get the host name of the machine
@@ -30,6 +32,8 @@ def GetCpuInfo():
     
     cpuInfoData = []
     criteriaArray = ["processor", "vendor_id", "model", "model name", "cache size"]
+
+    #Extracts the first occurrence of each relevant CPU info field
     for criteria in criteriaArray:
         for line in dataArray:
             if criteria in line:
