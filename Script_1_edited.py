@@ -3,7 +3,7 @@ Script_1.py
 
 Aquires system information such as machine name, CPU details, running services, and system accounts, then stores the data in a JSON file.
 
-CPRG217-D Feb 10/25
+CPRG217-A Feb 10/25
 Group 8 
 Muhammad Khan 957149, 
 """
