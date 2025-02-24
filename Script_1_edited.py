@@ -5,7 +5,7 @@ Aquires system information such as machine name, CPU details, running services, 
 
 CPRG217-A Feb 10/25
 Group 8 
-Muhammad Khan 957149, 
+Muhammad Khan 957149, Xiangzhi Gu 538190
 """
 
 import socket, pwd, grp, os, json
