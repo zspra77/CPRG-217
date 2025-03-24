@@ -1,3 +1,16 @@
+""" 
+System Monitoring Script for Windows
+
+This script will monitor system performance, including CPU usage, memory usage,
+and running processes. Allows users to set custom thresholds for CPU and memory usage 
+and logs any high resource detected.
+
+CPRG-217-A March 23, 2025
+Group 8
+Clayton Ma 760796, Allen Amil 959926, Muhammad Khan 957149, Dustin Nguyen 737507, Xiangzhi Gu 538190
+"""
+
+
 import time
 import psutil
 import win32api
