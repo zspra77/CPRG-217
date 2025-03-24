@@ -29,9 +29,13 @@ try:
 except Exception as e:
     print(f"Error setting up logging: {e}")
 
+
+
 # Function to get system uptime using win32api
 def get_system_uptime():
     return win32api.GetTickCount() // 1000  # Convert ms to seconds
+
+
 
 # Function to get CPU usage using win32pdh
 def get_cpu_usage():
@@ -48,6 +52,8 @@ def get_cpu_usage():
         logging.error(f"Error while querying CPU usage: {str(e)}")
         return None
 
+
+
 # Function to get process CPU and memory usage
 def get_process_usage(pid):
     try:
@@ -57,6 +63,9 @@ def get_process_usage(pid):
         return cpu_usage, memory_info
     except (psutil.NoSuchProcess, psutil.AccessDenied):
         return None, None
+
+
+
 # def get_process_usage(pid):
 def get_running_processes():
     try:
@@ -75,6 +84,8 @@ def get_running_processes():
     except Exception as e:
         logging.error(f"Error enumerating processes: {str(e)}")
         return []    
+
+
 
 # Function to monitor system stats with user-defined thresholds
 def monitor_system(threshold_cpu=50, threshold_memory=200):
@@ -113,6 +124,8 @@ def monitor_system(threshold_cpu=50, threshold_memory=200):
             print("Monitoring stopped.")
             logging.info("Monitoring stopped by user.")
             break
+
+
 
 if __name__ == "__main__":
     monitor_system()
