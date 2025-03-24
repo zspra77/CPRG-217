@@ -1,5 +1,5 @@
 import time
-#import psutil
+import psutil
 import win32api
 import win32process
 import win32pdh
@@ -30,23 +30,23 @@ def get_cpu_usage():
         return None
 
 # Function to get process CPU and memory usage
-# def get_process_usage(pid):
-#     try:
-#         process = psutil.Process(pid)
-#         cpu_usage = process.cpu_percent(interval=1)
-#         memory_info = process.memory_info().rss / (1024 * 1024)  # Convert bytes to MB
-#         return cpu_usage, memory_info
-#     except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
-#         return None, None
 def get_process_usage(pid):
     try:
-        process = win32api.OpenProcess(win32con.PROCESS_QUERY_INFORMATION | win32con.PROCESS_VM_READ, False, pid)
-        cpu_usage = win32process.GetProcessTimes(process)[0]  # Get CPU time for process
-        memory_info = win32process.GetProcessMemoryInfo(process)[0]  # Get memory info
+        process = psutil.Process(pid)
+        cpu_usage = process.cpu_percent(interval=1)
+        memory_info = process.memory_info().rss / (1024 * 1024)  # Convert bytes to MB
         return cpu_usage, memory_info
-    except (PermissionError, win32process.error) as e:
-        logging.error(f"Access Denied or Error getting process data for PID {pid}: {str(e)}")
+    except (psutil.NoSuchProcess, psutil.AccessDenied):
         return None, None
+# def get_process_usage(pid):
+#     try:
+#         process = win32api.OpenProcess(win32con.PROCESS_QUERY_INFORMATION | win32con.PROCESS_VM_READ, False, pid)
+#         cpu_usage = win32process.GetProcessTimes(process)[0]  # Get CPU time for process
+#         memory_info = win32process.GetProcessMemoryInfo(process)[0]  # Get memory info
+#         return cpu_usage, memory_info
+#     except (PermissionError, win32process.error) as e:
+#         logging.error(f"Access Denied or Error getting process data for PID {pid}: {str(e)}")
+#         return None, None
 
 # Function to get running processes using win32process
 def get_running_processes():
