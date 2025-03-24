@@ -94,7 +94,7 @@ def monitor_system(threshold_cpu=50, threshold_memory=200):
         return    
     
     print(f"System uptime: {get_system_uptime()} seconds")
-    print("Monitoring system performance... Press Ctrl+C to stop.")
+    print("Monitoring system performance... Press Ctrl+C once to get CPU and Ram update, twice to end program.")
     
     while True:
         try:
