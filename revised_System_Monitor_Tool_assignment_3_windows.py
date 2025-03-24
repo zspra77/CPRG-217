@@ -6,9 +6,15 @@ import win32pdh
 import win32event
 import win32con
 import logging
+import os
+
+print("Current Working Directory:", os.getcwd())
 
 # Set up logging to write results to a file
-logging.basicConfig(filename="system_monitor_log.txt", level=logging.INFO, format="%(asctime)s - %(message)s")
+try:
+    logging.basicConfig(filename="system_monitor_log.txt", level=logging.INFO, format="%(asctime)s - %(message)s")
+except Exception as e:
+    print(f"Error setting up logging: {e}")
 
 # Function to get system uptime using win32api
 def get_system_uptime():
