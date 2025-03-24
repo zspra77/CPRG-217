@@ -8,7 +8,7 @@ import time
 
 def log_message(message):
     try:
-        log_file_path = "C:\\Users\\clayt\\OneDrive\\Documents\\printer_log.txt"
+        log_file_path = "C:\\Users\\user\\OneDrive - Southern Alberta Institute of Technology\\Desktop\\CPRG 217\\CPRG-217\\printer_log.txt"
         with open(log_file_path, "a", encoding="utf-8") as log_file:
             log_entry = f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {message}\n"
             log_file.write(log_entry)

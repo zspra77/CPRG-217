@@ -1,0 +1,66 @@
+'''
+Pseudo Code for System Monitor Tool Assignment
+
+'''
+
+#BEGIN
+
+
+    # Set up logging to a file
+    SETUP logging to "system_monitor_log.txt"
+    This will record all of the records of high CPU/RAM usage as well as errors
+
+    # Function to get system uptime
+    FUNCTION get_system_uptime()
+    Retrieve the system uptime using win32api and convert the MS to seconds for easier reading
+        RETURN system uptime in seconds
+
+    # Function to get total CPU usage
+    FUNCTION get_cpu_usage()
+    Retrieve the system current CPU usage for the main CPU in percentage
+    as well as obtain the processor time to match the current CPU percentage
+        RETURN total CPU usage in percentage
+
+    # Function to get CPU and memory usage of a process
+    FUNCTION get_process_usage(pid)
+    Will retrieve the usuage of a specific application using PID, this will take CPU and RAM usuage
+    to be then used later for comparison
+        RETURN CPU usage and memory usage of the process with given pid
+
+    # Function to get all running processes
+    FUNCTION get_running_processes()
+    A get function to list out all currently running processes and their PID's 
+        RETURN list of all running processes with their PIDs and names
+
+    Main monitoring function
+    # FUNCTION monitor_system()
+    This is the UI that the user will see
+        ASK user for CPU usage threshold
+        ASK user for memory usage threshold
+
+        PRINT system uptime
+        PRINT Message for user to end the program if needed
+
+        WHILE True
+            GET total CPU usage
+            PRINT total CPU usage
+            LOG total CPU usage
+
+            GET list of running processes
+            FOR each process in running processes
+                GET CPU and memory usage of the process
+                IF CPU usage > threshold OR memory usage > threshold
+                    PRINT high resource usage details
+                    LOG high resource usage details
+
+            SLEEP for 2 seconds
+
+            IF user presses Ctrl+C
+                PRINT "Monitoring stopped."
+                LOG "Monitoring stopped by user."
+                BREAK
+
+    Start monitoring
+    CALL monitor_system function 
+
+#END

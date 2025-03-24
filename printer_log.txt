@@ -1,0 +1,14 @@
+2025-03-23 20:36:03 - Listed printers: OneNote (Desktop) - Protected, OneNote (Desktop), Microsoft Print to PDF
+2025-03-23 20:36:06 - Selected Printer: OneNote (Desktop) - Protected
+2025-03-23 20:36:09 - Printer 'OneNote (Desktop) - Protected' Status: 2
+2025-03-23 20:36:12 - Printer 'OneNote (Desktop) - Protected' Status: 2
+2025-03-23 20:36:15 - Test page sent to printer: OneNote (Desktop) - Protected
+2025-03-23 20:36:18 - Listed printers: OneNote (Desktop) - Protected, OneNote (Desktop), Microsoft Print to PDF
+2025-03-23 20:36:22 - Selected Printer: OneNote (Desktop)
+2025-03-23 20:36:23 - Default printer set to: OneNote (Desktop)
+2025-03-23 20:36:26 - Test page sent to printer: OneNote (Desktop)
+2025-03-23 20:36:39 - Listed printers: OneNote (Desktop) - Protected, OneNote (Desktop), Microsoft Print to PDF
+2025-03-23 20:36:41 - Selected Printer: Microsoft Print to PDF
+2025-03-23 20:36:47 - Printer 'Microsoft Print to PDF' Status: 0
+2025-03-23 20:36:52 - ERROR - Failed to print test page: StartDoc failed
+2025-03-23 20:36:54 - Exiting.
