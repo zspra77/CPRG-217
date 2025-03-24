@@ -45,28 +45,7 @@ def get_process_usage(pid):
     except (psutil.NoSuchProcess, psutil.AccessDenied):
         return None, None
 # def get_process_usage(pid):
-#     try:
-#         process = win32api.OpenProcess(win32con.PROCESS_QUERY_INFORMATION | win32con.PROCESS_VM_READ, False, pid)
-#         cpu_usage = win32process.GetProcessTimes(process)[0]  # Get CPU time for process
-#         memory_info = win32process.GetProcessMemoryInfo(process)[0]  # Get memory info
-#         return cpu_usage, memory_info
-#     except (PermissionError, win32process.error) as e:
-#         logging.error(f"Access Denied or Error getting process data for PID {pid}: {str(e)}")
-#         return None, None
-
-# Function to get running processes using win32process
 def get_running_processes():
-    # process_ids = win32process.EnumProcesses()
-    # processes = []
-    # for pid in process_ids:
-    #     try:
-    #         handle = win32api.OpenProcess(win32con.PROCESS_QUERY_INFORMATION | win32con.PROCESS_VM_READ, False, pid)
-    #         module_name = win32process.GetModuleFileNameEx(handle, 0)
-    #         processes.append((pid, module_name))
-    #         win32api.CloseHandle(handle)
-    #     except:
-    #         continue
-    # return processes
     try:
         process_ids = win32process.EnumProcesses()
         processes = []
