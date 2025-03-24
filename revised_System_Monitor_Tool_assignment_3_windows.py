@@ -12,7 +12,7 @@ logging.basicConfig(filename="system_monitor_log.txt", level=logging.INFO, forma
 
 # Function to get system uptime using win32api
 def get_system_uptime():
-    return win32api.GetTickCount64() // 1000  # Convert ms to seconds
+    return win32api.GetTickCount() // 1000  # Convert ms to seconds
 
 # Function to get CPU usage using win32pdh
 def get_cpu_usage():
@@ -40,7 +40,7 @@ def get_cpu_usage():
 #         return None, None
 def get_process_usage(pid):
     try:
-        process = win32process.OpenProcess(win32con.PROCESS_QUERY_INFORMATION | win32con.PROCESS_VM_READ, False, pid)
+        process = win32api.OpenProcess(win32con.PROCESS_QUERY_INFORMATION | win32con.PROCESS_VM_READ, False, pid)
         cpu_usage = win32process.GetProcessTimes(process)[0]  # Get CPU time for process
         memory_info = win32process.GetProcessMemoryInfo(process)[0]  # Get memory info
         return cpu_usage, memory_info
