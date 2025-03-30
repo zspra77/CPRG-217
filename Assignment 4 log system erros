@@ -1,0 +1,25 @@
+import os
+import datetime
+
+def get_recent_system_errors():
+    try:
+        logs = os.popen("journalctl -p 3 -n 10 --no-pager").read()  # Gets last 10 critical/error logs
+        return logs if logs else "No recent system errors found."
+    except Exception as e:
+        return f"Error retrieving system logs: {str(e)}"
+
+def log_errors():
+    error_log = f"Error Log Generated: {datetime.datetime.now()}\n"
+    error_log += "=" * 40 + "\n"
+    error_log += get_recent_system_errors() + "\n"
+
+    log_file = "/tmp/system_errors.log"
+    try:
+        with open(log_file, "w") as file:
+            file.write(error_log)
+        print(f"System errors logged to {log_file}")
+    except Exception as e:
+        print(f"Error writing log file: {str(e)}")
+
+if __name__ == "__main__":
+    log_errors()
