@@ -8,6 +8,7 @@ and real-time diagnostics such as CPU, memory, disk usage, and system uptime.
 CPRG-217-A  Apr. 6, 2025  
 group 8  
 Clayton Ma 760796, Allen Amil 959926, Muhammad Khan 957149, Dustin Nguyen 737507, Xiangzhi Gu 538190
+
 """
 
 import os
