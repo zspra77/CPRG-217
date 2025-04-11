@@ -1,0 +1,74 @@
+
+"""
+Assignment 4: Log system
+
+Retrieves basic system information including user name, computer name, current date & time, 
+and real-time diagnostics such as CPU, memory, disk usage, and system uptime.
+
+CPRG-217-A  Apr. 6, 2025  
+group 8  
+Clayton Ma 760796, Allen Amil 959926, Muhammad Khan 957149, Dustin Nguyen 737507, Xiangzhi Gu 538190
+
+"""
+
+import os
+import socket
+import datetime
+import psutil
+
+def get_user_name():
+    try:
+        return os.getenv('USER', 'Unknown User')
+    except Exception as e:
+        return f"Error retrieving user name: {e}"
+
+def get_computer_name():
+    try:
+        return socket.gethostname()
+    except Exception as e:
+        return f"Error retrieving computer name: {e}"
+
+def get_date_time():
+    try:
+        return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    except Exception as e:
+        return f"Error retrieving date and time: {e}"
+
+def get_system_diagnostics():
+    try:
+        uptime_seconds = int(datetime.datetime.now().timestamp() - psutil.boot_time())
+        uptime_string = str(datetime.timedelta(seconds=uptime_seconds))
+        
+        diagnostics = {
+            "CPU Usage (%)": psutil.cpu_percent(interval=1),
+            "Memory Usage (%)": psutil.virtual_memory().percent,
+            "Disk Usage (%)": psutil.disk_usage('/').percent,
+            "Uptime": uptime_string
+        }
+        return diagnostics
+    except Exception as e:
+        print(f"Error retrieving system diagnostics: {e}")
+        return {
+            "CPU Usage (%)": "N/A",
+            "Memory Usage (%)": "N/A",
+            "Disk Usage (%)": "N/A",
+            "Uptime": "N/A"
+        }
+
+def main():
+    try:
+        with open("system_info.txt", "w") as file:
+            file.write(f"User Name: {get_user_name()}\n")
+            file.write(f"Computer Name: {get_computer_name()}\n")
+            file.write(f"Date & Time: {get_date_time()}\n\n")
+            
+            file.write("System Diagnostics:\n")
+            diagnostics = get_system_diagnostics()
+            for key, value in diagnostics.items():
+                file.write(f"{key}: {value}\n")
+        print("System information written to system_info.txt")
+    except Exception as e:
+        print(f"Error writing to file: {e}")
+
+if __name__ == "__main__":
+    main()
